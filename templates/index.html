@@ -1,0 +1,13 @@
+<!-- html for our homepage -->
+{% extends 'base.html' %}
+
+{% block scripts %}
+
+    <!-- hompage react script -->
+    <!-- IMPORTANT:
+            - MUST include the address where you are running your file server of the browser will not be able to access the file (see README for details). This address must go before EVERY react file path.
+            - Remember to include the type as "text/jsx" so that the browser knows it needs to be translated
+    -->
+
+    <script src="http://0.0.0.0:5002/static/js/index.jsx" type="text/jsx"></script>
+{% endblock %}
