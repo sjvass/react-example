@@ -14,44 +14,32 @@ def load_students():
     #I copied everyone's names in the order they appear on the houses page, so
     #order/inclusion/spelling is not personal :)
     aj = Student(fname='Avarna',
-                        lname='Jain',
-                        house='Gryffindor',
-                        advisor='Dave Galbraith')
+                        lname='Jain')
 
     db.session.add(aj)
 
     sn = Student(fname='Sharimen',
-                    lname='Newaz',
-                    house='Gryffindor',
-                    advisor='Dave Galbraith')
+                    lname='Newaz')
 
     db.session.add(sn)
 
     mps = Student(fname='Melissa',
-                    lname='Paredes-Scampini',
-                    house='Gryffindor',
-                    advisor='Dave Galbraith')
+                    lname='Paredes-Scampini')
 
     db.session.add(mps)
 
     kb = Student(fname='Kristen',
-                    lname='Beneduce',
-                    house='Ravenclaw',
-                    advisor='Seema Ullal')
+                    lname='Beneduce')
 
     db.session.add(kb)
 
     bc = Student(fname='Bonnie',
-                    lname='Chen',
-                    house='Ravenclaw',
-                    advisor='Seema Ullal')
+                    lname='Chen')
 
     db.session.add(bc)
 
     jj = Student(fname='Jessica',
-                    lname='Jenkins',
-                    house='Ravenclaw',
-                    advisor='Seema Ullal')
+                    lname='Jenkins')
 
     db.session.add(jj)
 

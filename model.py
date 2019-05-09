@@ -17,28 +17,13 @@ class Student(db.Model):
     student_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     fname = db.Column(db.String(100), nullable=False)
     lname = db.Column(db.String(100), nullable=False)
-    house = db.Column(db.String(100), nullable=False)
-    advisor = db.Column(db.String(100), nullable=False)
 
     def __repr__(self): 
         """ Provide helpful representation when printed """
 
         return f"""<Student student_id={self.student_id},
                     fname={self.fname},
-                    lname={self.lname},
-                    house={self.house},
-                    advisor={self.advisor}>"""
-
-    def to_dict(self):
-        """Creates dictionary representation of Student instance"""
-
-        student_dict = {'student_id': self.student_id,
-                        'fname': self.fname,
-                        'lname': self.lname,
-                        'house': self.house,
-                        'advisor': self.advisor}
-
-        return student_dict
+                    lname={self.lname}>"""
 
 
 

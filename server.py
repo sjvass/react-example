@@ -47,22 +47,23 @@ def send_student_list():
     #get all students
     students = Student.query.all()
 
-    print(students)
-
     #create empty list to store student dictionaries
     response = []
 
     #create a dictionary for each student object so it can be converted to JSON
     for student in students:
-        #print(student.to_dict())
 
-        response.append(student.to_dict())
+        student_dict = {'student_id': student.student_id,
+                        'fname': student.fname,
+                        'lname': student.lname}
+
+        response.append(student_dict)
 
     #convert list of python dicts to list of JSON objects
     return jsonify(response)
 
 
-@app.route('/new-student')
+@app.route('/new-student', methods=['GET'])
 def new_student_form():
     """renders html template form for creating a new student"""
 
