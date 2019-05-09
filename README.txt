@@ -3,7 +3,7 @@ React
 
 You MUST run a file server in addition to the Flask servet you create. To do that, on your local machine (not Vagrant), run the following commands: 
 
-    $ cd react-integration-example
+    $ cd (project directory)
     $ python2 server-override.py 5002
 
 You need to run that server IN ADDITION to your flask server.py file. I have it set to run on port 5002, but you can run it on any free port, just make sure the address you use when you link your jsx files uses the port you're using.
