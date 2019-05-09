@@ -1,4 +1,5 @@
 "use strict";
+/*Example of getting and using data from server*/
 
 //Defines StudentList tag
 class StudentList extends React.Component {
@@ -45,7 +46,8 @@ class StudentList extends React.Component {
         //use js map function (similar to a list comprehension)
         //for each value in students, create an <li> element
         //with the student's id as a key and a value of their
-        //first and last names.
+        //first and last names. If your data is not a list,
+        //you don't need this.
         //this could also be done with a for loop
         const nameList = students.map((student) =>
             <li key={student.student_id.toString()}>

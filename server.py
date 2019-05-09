@@ -3,8 +3,7 @@
 
 from jinja2 import StrictUndefined
 
-from flask import (Flask, render_template, redirect, request, flash,
-                    session, jsonify)
+from flask import (Flask, render_template, redirect, request, jsonify)
 
 #from flask_debugtoolbar import DebugToolbarExtension
 
@@ -14,7 +13,7 @@ from model import Student, connect_to_db, db
 app = Flask(__name__)
 
 # Required to use Flask sessions and the debug toolbar
-app.secret_key = "ABC"
+# app.secret_key = "ABC"
 
 # Normally, if you use an undefined variable in Jinja2, it fails
 # silently. This is horrible. Fix this so that, instead, it raises an
@@ -33,12 +32,6 @@ def student_list():
     """renders html template for list of students"""
 
     return render_template('student-list.html')
-
-@app.route('/students/<student_id>')
-def student_page(student_id):
-    """renders html template for student with specified id"""
-
-    return render_template('student-page.html')
 
 @app.route('/api/students')
 def send_student_list():
@@ -68,7 +61,29 @@ def send_student_list():
     #convert list of python dicts to list of JSON objects
     return jsonify(response)
 
-#@app.route('/new-student')
+
+@app.route('/new-student')
+def new_student_form():
+    """renders html template form for creating a new student"""
+
+    return render_template('new-student.html')
+
+@app.route('/new-student', methods=['POST'])
+def add_new_student():
+    """uses posted information to add a new student to student"""
+
+    #get posted information
+    fname = request.json['fname']
+    lname = request.json['lname']
+
+    #add new student to students
+    new_student = Student(fname=fname,
+                            lname=lname)
+
+    db.session.add(new_student)
+    db.session.commit()
+
+    return redirect('/')
 
 
 if __name__ == "__main__":
