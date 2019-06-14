@@ -86,6 +86,12 @@ def add_new_student():
 
     return redirect('/')
 
+#serves js and jsx files so you don't need a 2nd server
+@app.route("/static/<path:resource>")
+def get_resource(resource):
+    return send_from_directory("static", resource)
+
+
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be5000 True at the
